@@ -7,10 +7,8 @@ object Exercise_2_1 extends App {
 
   def fib(n: Int): Int = {
     @annotation.tailrec
-    def go(i: Int, cur: Int, prev: Int): Int = i match {
-      case 0 => cur
-      case _ => go(i - 1, cur + prev, cur)
-    }
+    def go(i: Int, cur: Int, prev: Int): Int =
+      if (i <= 0) cur else go(i - 1, cur + prev, cur)
     go(n, 0, 1)
   }
 
